@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    #type: com.alibaba.druid.pool.DruidDataSource &serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/vhr?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    driver: com.mysql.jdbc.Driver
+#  rabbitmq:
+#    username: root
+#    password: root
+#    host: 127.0.0.1
+#    publisher-confirms: true
+#    publisher-returns: true
+  redis:
+    host: 127.0.0.1
+    database: 0
+    port: 6379
+    password: redis
+  cache:
+    cache-names: menus_cache
+server:
+  port: 8081
+  compression:
+    enabled: true
+fastdfs:
+  nginx:
+    host: http://192.168.91.128/
+
+#sql日志输出，方法一
+logging:
+  level:
+    org:
+      javaboy:
+        vhr:
+          mapper: trace
+
+#sql日志输出，方法二
+#mybatis:
+#  mapper-locations: classpath:org/javaboy/vhr/mapper/*Mapper.xml
+#  type-aliases-package: org.javaboy.vhr.mapper
+#  configuration:
+#    mapUnderscoreToCamelCase: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

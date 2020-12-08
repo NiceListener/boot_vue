@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.javaboy.vhr.mapper.OrderFormMapper">
+    <select id="getOrderListByPage" resultType="org.javaboy.vhr.model.OrderForm">
+        SELECT
+            id                     id,
+            nick_name              nickname,
+            WeChat_ID              WeChatID,
+            shop                   shop,
+            order_type             orderType,
+            order_number           orderNumber,
+            supplier               supplier,
+            agency_price           agencyPrice,
+            selling_price          sellingPrice,
+            payment                payment,
+            differences_price      differencesPrice,
+            courier_number         courierNumber,
+            receiving_name         receivingName,
+            receiving_phone        receivingPhone,
+            receiving_address      receivingAddress,
+            largess                largess,
+            largess_courier_number largessCourierNumber,
+            date_format(order_time, '%Y-%m-%d %h:%m:%s')             orderTime
+        FROM t_order_form
+        WHERE
+            agent_code = '1'
+        ORDER BY
+            order_time DESC
+        <if test="page !=null and size!=null">
+            limit #{page},#{size}
+        </if>
+    </select>
+    <select id="getTotal" resultType="java.lang.Long">
+        SELECT
+            count(1)
+        FROM t_order_form
+        WHERE
+            agent_code = '1'
+    </select>
+    <select id="getOrderFormInfo" resultType="org.javaboy.vhr.model.OrderForm">
+        SELECT
+            id                     id,
+            nick_name              nickname,
+            WeChat_ID              WeChatID,
+            shop                   shop,
+            order_type             orderType,
+            order_number           orderNumber,
+            supplier               supplier,
+            agency_price           agencyPrice,
+            selling_price          sellingPrice,
+            payment                payment,
+            differences_price      differencesPrice,
+            courier_number         courierNumber,
+            receiving_name         receivingName,
+            receiving_phone        receivingPhone,
+            receiving_address      receivingAddress,
+            largess                largess,
+            largess_courier_number largessCourierNumber,
+            date_format(order_time, '%Y-%m-%d %h:%m:%s')             orderTime
+        FROM t_order_form
+        WHERE
+            id = #{id}
+    </select>
+
+    <insert id="addOrderForm" parameterType="org.javaboy.vhr.model.OrderForm">
+        INSERT INTO
+            t_order_form (agent_code, nick_name, WeChat_ID, shop, order_type, order_number, supplier, agency_price, selling_price, payment, differences_price, courier_number, receiving_name, receiving_phone, receiving_address, largess, largess_courier_number ,order_time)
+        VALUES
+            (#{agentCode},#{nickName},#{WeChatID},#{shop},#{orderType},#{orderNumber},#{supplier},#{agencyPrice},#{sellingPrice},#{payment},#{differencesPrice},#{courierNumber},#{receivingName},#{receivingPhone},#{receivingAddress},#{largess},#{largessCourierNumber},#{orderTime})
+    </insert>
+</mapper>
