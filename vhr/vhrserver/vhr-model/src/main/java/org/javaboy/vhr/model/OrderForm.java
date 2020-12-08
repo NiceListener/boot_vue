@@ -3,7 +3,6 @@ package org.javaboy.vhr.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.util.Date;
 
 /**

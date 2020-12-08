@@ -16,6 +16,36 @@ MySQL - 8.0.18 : Database - vhr
 
 /*Table structure for table `adjustsalary` */
 
+
+CREATE TABLE vhr.t_order_form
+(
+    id                     int AUTO_INCREMENT COMMENT '自增主键'
+        CONSTRAINT `PRIMARY`
+        PRIMARY KEY,
+    agent_code             varchar(20)    NULL,
+    nick_name              varchar(50)    NULL COMMENT '微信昵称',
+    WeChat_ID              varchar(50)    NULL COMMENT '微信号',
+    shop                   varchar(255)   NULL COMMENT '商品',
+    order_type             varchar(20)    NULL COMMENT '下单方式',
+    order_number           varchar(50)    NULL COMMENT '订单编号',
+    supplier               varchar(30)    NULL COMMENT '供货商',
+    agency_price           decimal(10, 2) NULL COMMENT '代理价',
+    selling_price          decimal(10, 2) NULL COMMENT '售价',
+    payment                decimal(10, 2) NULL COMMENT '客户实付',
+    differences_price      decimal(10, 2) NULL COMMENT '需返差价',
+    courier_number         varchar(30)    NULL COMMENT '快递单号',
+    receiving_name         varchar(50)    NULL COMMENT '收货姓名',
+    receiving_phone        varchar(13)    NULL COMMENT '收货电话',
+    receiving_address      varchar(255)   NULL COMMENT '收货地址',
+    largess                varchar(255)   NULL COMMENT '赠品详情',
+    largess_courier_number varchar(30)    NULL COMMENT '赠品快递单号',
+    order_time             datetime       NULL COMMENT '下单时间'
+)
+    COMMENT '订单详情信息';
+
+INSERT INTO vhr.t_order_form (id, agent_code, nick_name, WeChat_ID, shop, order_type, order_number, supplier, agency_price, selling_price, payment, differences_price, courier_number, receiving_name, receiving_phone, receiving_address, largess, largess_courier_number, order_time) VALUES (1, '1', 'ALPHA小艾', null, 'hagaday推车+妈咪包+送睡篮', '旗舰店', null, '优车', 1950.00, 2060.00, 2990.00, 930.00, null, '吴小艾', '15018873146', '广东省惠州市', '无', null, '2020-10-24 09:47:22');
+
+
 DROP TABLE IF EXISTS `adjustsalary`;
 
 CREATE TABLE `adjustsalary` (
