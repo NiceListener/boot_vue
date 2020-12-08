@@ -1,17 +1,3 @@
-扫码加微信（微信ID：**a_java_boy2**），备注微人事，进群讨论。
-
-![微信ID：a_java_boy2](https://user-images.githubusercontent.com/6023444/75459026-ba70d500-59b9-11ea-8cbd-3d5889f356c4.png)
-
-## 项目介绍
-
-微人事是一个前后端分离的人力资源管理系统，项目采用 SpringBoot+Vue 开发，项目加入常见的企业级应用所涉及到的技术点，例如 Redis、RabbitMQ 等。
-
-
-- 项目地址：[https://github.com/lenve/vhr](https://github.com/lenve/vhr) 
-- [项目部署视频教程（旧版）](https://mp.weixin.qq.com/s/qN01Le434FWom0c3jqiQmA)
-- [项目部署视频教程（新版）](https://mp.weixin.qq.com/s/dcJv6BIVFPnokI8nBf4IrQ)
-- [项目其他相关资料](./README_zh.md)
-
 ### 项目技术栈
 
 #### 后端技术栈
